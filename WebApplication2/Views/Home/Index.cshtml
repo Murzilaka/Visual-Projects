@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model WebApplication2.Models.IndexViewModel
+@using WebApplication2.Helpers
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <td>Модель</td>
+        <td>Производитель</td>
+    </tr>
+    @foreach (var item in Model.Phones)
+    {
+        <tr>
+            <td>@item.Model</td>
+            <td>@item.Producer</td>
+        </tr>
+    }
+</table>
+<br />
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x=> Url.Action("Index", new { page = x}))
+</div>
